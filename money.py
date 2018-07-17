@@ -7,8 +7,8 @@ def get_money():
     cursor = client.cursor()
 
     try:
-        cursor.execute("update Account set money=30 where name='张三';")
-        cursor.execute("update Account set money=120 where name='李四';")
+        cursor.execute("update Account set money=40 where name='张三';")
+        cursor.execute("update Account set money=110 where name='李四';")
         cursor.execute('select * from Account;')
     except Exception as e:
         print(str(e))
