@@ -1,7 +1,9 @@
 import pymysql
 
+
 def get_money():
-    client  = pymysql.Connect(host='localhost',user='root',password='rock1204',port=3306,db='HelloPython',charset='utf8')
+    client = pymysql.Connect(host='localhost', user='root', password='rock1204', port=3306, db='HelloPython',
+                             charset='utf8')
     cursor = client.cursor()
 
     try:
@@ -10,8 +12,10 @@ def get_money():
         cursor.execute('select * from Account;')
     except Exception as e:
         print(str(e))
+        # 出错 打印异常并回滚
         client.rollback()
     else:
+        # 成功 提交数据
         client.commit()
 
     p_moneys = cursor.fetchall()
