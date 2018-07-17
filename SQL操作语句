@@ -1,0 +1,86 @@
+select * from Student;
+
+select  name , age from Winner;
+
+select * from Student where age>18;
+
+insert into Student(name, age) VALUES ("小哈1",26);
+
+select * from Student;
+
+update Student set age=8 where id=8;
+
+delete from Student where id=3;
+
+select distinct name from Student;
+
+select * from Student;
+
+select * from Student where name="小哈" and age > 10;
+
+insert into Student values (5,"小刘",10);
+
+create table Grade(id int primary key auto_increment,name varchar(16) unique ,age tinyint);
+
+show tables;
+
+insert into Grade (name, age) VALUES ("PHP",1);
+
+select * from Grade;
+
+create table Person(id int primary key auto_increment,name varchar(16) default "老李",age int);
+
+show tables;
+
+insert into Person (age) values (10);
+
+select * from Person;
+
+update Person set age=15 where id=1;
+
+desc Person;
+
+show tables ;
+
+drop table Person;
+
+create table Home(id int primary key auto_increment,addr varchar(16) default "宝盛里");
+
+insert into Home(id,addr) VALUES (3,"长阳");
+
+select * from Home;
+
+create table Person(id int primary key auto_increment, p_name varchar(16),age tinyint default 10, p_id int,foreign key (p_id) references Home(id));
+
+select * from Person;
+
+insert into  Person(p_id,age,p_name) values (2,15,"hehe");
+
+update Person SET p_name="啦啦" where id = 5;
+
+desc Person;
+
+select * from Person,Home where Person.p_id = Home.id;
+
+select * from Person right join Home on Person.p_id = Home.id;
+
+select p_id,avg(age) from Person group by p_id;
+
+select  p_id,sum(age) from Person group by p_id having avg(age)>13;
+
+select  p_id,sum(age) from Person group by p_id having sum(age)>56;
+
+create table Study(id int primary key auto_increment,name varchar(16),type int);
+
+insert into Study(name,type) values('python',1),('php',2),('java',3);
+
+# select * from Study;
+
+# 根据字段排序
+SELECT * FROM Study ORDER BY -type;
+
+# DESC 降序排序
+select * from Study order by type DESC ;
+
+# asc升序
+select * from Study order by type ASC ;
